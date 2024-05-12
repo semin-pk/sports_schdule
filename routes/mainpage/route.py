@@ -23,7 +23,7 @@ async def tt(url):
         if response.status_code == 200:
             return json.loads(response.text)
 
-async def make_url(categoryId, upperCategoryId):
+async def make_url(upperCategoryId, categoryId):
     year = datetime.now().year
     month = datetime.now().month
     
@@ -31,10 +31,9 @@ async def make_url(categoryId, upperCategoryId):
     url =f"https://api-gw.sports.naver.com/schedule/games?fields=basic%2CsuperCategoryId%2CcategoryName%2Cstadium%2CstatusNum%2CgameOnAir%2ChasVideo%2Ctitle%2CspecialMatchInfo%2CroundCode%2CseriesOutcome%2CseriesGameNo%2ChomeStarterName%2CawayStarterName%2CwinPitcherName%2ClosePitcherName%2ChomeCurrentPitcherName%2CawayCurrentPitcherName%2CbroadChannel&upperCategoryId={upperCategoryId}&categoryId={categoryId}&fromDate=2024-{month:02}-01&toDate=2024-{month:02}-{days_in_month}&roundCodes&size=500"
     return url
 
-async def crawling_schdule(categoryId: str, upperCategoryId: str):
+async def crawling_schdule(upperCategoryId: str, categoryId: str):
     #crawling url
-    url = await make_url(categoryId, upperCategoryId)
-    print(url)
+    url = await make_url(upperCategoryId, categoryId)
 
     #해당 url로 부터 데이터 받아오기
     data = await tt(url)

@@ -1,6 +1,6 @@
 from fastapi.routing import APIRoute
 
-from routes.schdule.route import crawling_schdule
+from routes.mainpage.route import crawling_schdule
 
 '''auth_bussiness_num_route = APIRoute(
     path="/bussiness_num", endpoint=auth_bussiness_num, methods=["POST"]
@@ -15,5 +15,5 @@ new_store_insert_route = APIRoute(
 )'''
 
 sports_schdule_route = APIRoute(
-    path="/schdule", endpoint=crawling_schdule, methods=["POST"]
+    path="/sports_schdule", endpoint=crawling_schdule, methods=["POST"]
 )

@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from routes.schdule import sports_schdule_route
+from routes.mainpage import sports_schdule_route
 
 schdule_routers = APIRouter(tags=["Schdule"])
 
